@@ -1,6 +1,5 @@
 package com.delaware.data.sherpa
 
-import android.app.Application
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -51,5 +50,5 @@ class SplashActivity : AppCompatActivity() {
         }
         super.onDestroy()
     }
-    
+
 }
