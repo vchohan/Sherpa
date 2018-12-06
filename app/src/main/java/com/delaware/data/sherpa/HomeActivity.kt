@@ -3,6 +3,7 @@ package com.delaware.data.sherpa
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -12,24 +13,23 @@ import kotlinx.android.synthetic.main.home_activity.*
 import kotlinx.android.synthetic.main.home_app_bar.*
 import kotlinx.android.synthetic.main.home_content.*
 
+
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
+        var fragment: Fragment? = null
+
         when (item.itemId) {
-            R.id.navigation_home -> {
-                navi_message.setText(R.string.title_home)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_dashboard -> {
-                navi_message.setText(R.string.title_dashboard)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                navi_message.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
-            }
+            R.id.navigation_learn -> fragment = LearnFragment()
+
+            R.id.navigation_search -> fragment = SearchFragment()
+
+            R.id.navigation_apply -> fragment = ApplyFragment()
         }
-        false
+
+        return@OnNavigationItemSelectedListener loadFragment(fragment)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +43,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
+        drawer_navigation_view.setNavigationItemSelectedListener(this)
 
-        navi_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        //loading the default fragment
+        loadFragment(LearnFragment())
+
+        bottom_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
     }
 
     override fun onBackPressed() {
@@ -58,7 +62,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.options_menu, menu)
+        menuInflater.inflate(R.menu.app_options, menu)
         return true
     }
 
@@ -98,4 +102,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    private fun loadFragment(fragment: Fragment?): Boolean {
+        //switching fragment
+        if (fragment != null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment!!)
+                .commit()
+            return true
+        }
+        return false
+    }
+
 }

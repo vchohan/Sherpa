@@ -3,9 +3,9 @@
 
     <string name="home_activity_title">Home</string>
 
-    <string name="title_home">Learn</string>
-    <string name="title_dashboard">Search</string>
-    <string name="title_notifications">Apply</string>
+    <string name="learn_title">Learn</string>
+    <string name="search_title">Search</string>
+    <string name="apply_title">Apply</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
