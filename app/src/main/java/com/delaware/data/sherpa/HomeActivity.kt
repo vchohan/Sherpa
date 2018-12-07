@@ -20,11 +20,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var fragment: Fragment? = null
 
+        //switching fragments on the home screen
         when (item.itemId) {
             R.id.navigation_learn -> fragment = LearnFragment()
-
             R.id.navigation_search -> fragment = SearchFragment()
-
             R.id.navigation_apply -> fragment = ApplyFragment()
         }
 
@@ -40,7 +39,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
+
         drawer_layout.addDrawerListener(toggle)
+
         toggle.syncState()
 
         drawer_navigation_view.setNavigationItemSelectedListener(this)
@@ -48,16 +49,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //loading the default fragment
         loadFragment(LearnFragment())
 
+        //initializing the bottom navigation
         bottom_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-    }
-
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -71,7 +65,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> return true
+            R.id.settings_option -> return true
             else -> return super.onOptionsItemSelected(item)
         }
     }
@@ -113,6 +107,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             return true
         }
         return false
+    }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
 }

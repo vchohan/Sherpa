@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FCFC">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Learn about School Choice"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android">-->
 
-</RelativeLayout>
+    <!--<data>-->
+        <!--<variable-->
+                <!--name="user"-->
+                <!--type="com.delaware.data.sherpa.LearnObject"/>-->
+    <!--</data>-->
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                      xmlns:tools="http://schemas.android.com/tools"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                      tools:context=".HomeActivity"
+                      tools:showIn="@layout/learn_fragment">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.FName}"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.LName}"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+<!--</layout>-->
