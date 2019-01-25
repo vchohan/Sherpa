@@ -102,7 +102,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (fragment != null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, fragment!!)
+                .replace(R.id.fragment_container, fragment)
                 .commit()
             return true
         }
