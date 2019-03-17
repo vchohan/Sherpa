@@ -1,8 +1,9 @@
 package com.delaware.data.sherpa
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
+import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -13,8 +14,10 @@ import kotlinx.android.synthetic.main.home_activity.*
 import kotlinx.android.synthetic.main.home_app_bar.*
 import kotlinx.android.synthetic.main.home_content.*
 
+import com.delaware.data.sherpa.SearchFragment.OnButtonClickedListenter
+import com.delaware.data.sherpa.advancedsearch.AdvancedSearch
 
-class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener, OnButtonClickedListenter {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
@@ -32,6 +35,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Sherpa_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
         setSupportActionBar(toolbar)
@@ -117,4 +121,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    override fun onButtonClicked(){
+        val intent =  Intent(this, AdvancedSearch::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+    }
 }

@@ -1,17 +1,12 @@
 <resources>
     <string name="app_name">Sherpa</string>
-
-    <string name="home_activity_title">SHERPA</string>
-
-    <string name="learn_title">Learn</string>
-    <string name="search_title">Search</string>
-    <string name="apply_title">Apply</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="settings_option_title">Settings</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string name="back_to_search_results">Search Results</string>
+    <string name="learn">Learn</string>
+    <string name="search">Search</string>
+    <string name="apply">Apply</string>
 
     <string-array name="advanced_search_options">
         <item>Basic Facts</item>
@@ -22,6 +17,4 @@
         <item>Safety/Disciplne</item>
         <item>Uniqueness</item>
     </string-array>
-
-
 </resources>
