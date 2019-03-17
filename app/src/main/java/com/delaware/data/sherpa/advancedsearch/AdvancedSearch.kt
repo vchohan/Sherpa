@@ -23,7 +23,7 @@ class AdvancedSearch: AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(LOG_TAG, "Activity Started")
+//        Log.d(LOG_TAG, "Activity Started")
         setContentView(R.layout.advanced_search_layout)
 
         options = resources.getStringArray(R.array.advanced_search_options)
@@ -39,7 +39,7 @@ class AdvancedSearch: AppCompatActivity(){
         mSlidingTabLayout.setCustomTabColorizer(object : SlidingTabLayout.TabColorizer {
 
             override fun getIndicatorColor(position: Int): Int {
-                return Color.argb(255, 128, 203, 196)
+                return Color.argb(255, 224, 234, 234)
             }
 
             override fun getDividerColor(position: Int): Int {

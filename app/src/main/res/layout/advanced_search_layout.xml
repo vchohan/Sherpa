@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".advancedsearch.AdvancedSearch">
+
+    <com.delaware.data.sherpa.advancedsearch.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/pager"/>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/sliding_tabs" app:layout_constraintBottom_toTopOf="@id/button_bar"
+            app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent"
+    />
+
+
+    <LinearLayout
+            android:id="@+id/button_bar"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp" android:paddingRight="8dp"
+            android:paddingBottom="8dp" android:paddingTop="8dp"
+            android:background="@color/sherpaAccent">
+
+        <Button
+                android:id="@+id/back_to_search_results"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/back_to_search_results"
+                android:theme="@style/Sherpa.ButtonBar" android:layout_marginRight="8dp"/>
+
+        <Button
+                android:id="@+id/apply"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/apply_title"
+                android:theme="@style/Sherpa.ButtonBar" android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
